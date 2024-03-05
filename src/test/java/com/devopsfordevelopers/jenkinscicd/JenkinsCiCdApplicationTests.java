@@ -23,4 +23,11 @@ class JenkinsCiCdApplicationTests {
                 .andExpect(MockMvcResultMatchers.content().string("Hello " + name.split(" ")[0] + " Congratulations you have successfully completed Jenkins CI/CD demo !"));
     }
 
+    @Test
+    public void testAddEndpoint() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.get("/add").param("a", "2").param("b", "3"))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.content().string("5"));
+    }
+
 }
