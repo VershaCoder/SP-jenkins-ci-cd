@@ -3,14 +3,13 @@ pipeline{
 
     tools{
         maven "maven"
-        jdk "JDK17"
     }
 
     stages{
 
         stage("Sourcode Checkout"){
             steps{
-                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/SurajPatil-SP/jenkins-ci-cd.git']])
+                checkout scmGit(branches: [[name: '*/feature/addition']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/SurajPatil-SP/jenkins-ci-cd.git']])
             }
         }
 
@@ -24,8 +23,7 @@ pipeline{
 
         stage("Deploy to Container"){
             steps{
-                deploy adapters: [tomcat8(credentialsId: 'Tomcat-Password', path: '', url: 'http://localhost:8081/')], contextPath: 'jenkinsCiCd', war: '**/*.war'
-            }
+                deploy adapters: [tomcat9(credentialsId: 'tomcat-pwd', path: '', url: 'http://localhost:7070')], contextPath: 'jenkinsCiCd', war: '**/*.war'}
         }
 
     }
@@ -38,7 +36,7 @@ pipeline{
    <p>Build Number: ${BUILD_NUMBER}</p>
    <p>Check the <a href="${BUILD_URL}">console output</a></p>
    </body>
-</html>''', mimeType: 'text/html', replyTo: 'surajbpatil6116@gmail.com', subject: 'Pipeline Status : ${BUILD_STATUS}  #${BUILD_NUMBER}', to: 'surajbpatil6116@gmail.com'
-        }
+</html>''', mimeType: 'text/html', replyTo: 'vershamishra01@gmail.com', subject: 'Pipeline Status : ${BUILD_NUMBER}', to: 'vershamishra01@gmail.com'
+}
     }
 }
