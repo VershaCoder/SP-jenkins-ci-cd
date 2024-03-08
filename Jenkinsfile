@@ -9,7 +9,7 @@ pipeline{
 
         stage("Sourcode Checkout"){
             steps{
-                checkout scmGit(branches: [[name: '*/feature/addition']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/SurajPatil-SP/jenkins-ci-cd.git']])
+                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/SurajPatil-SP/jenkins-ci-cd.git']])
             }
         }
 
