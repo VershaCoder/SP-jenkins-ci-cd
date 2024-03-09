@@ -36,6 +36,6 @@ pipeline{
    <p>Build Number: ${BUILD_NUMBER}</p>
    <p>Check the <a href="${BUILD_URL}">console output</a></p>
    </body>
-</html>''', mimeType: 'text/html', replyTo: 'vershamishra01@gmail.com', subject: 'Main Branch:Pipeline Status : ${BUILD_NUMBER}', to: 'vershamishra01@gmail.com'       }
+</html>''', mimeType: 'text/html', replyTo: 'vershamishra01@gmail.com', subject: 'Versha :Main Branch : Pipeline Status : ${BUILD_NUMBER}', to: 'vershamishra01@gmail.com'       }
     }
 }
