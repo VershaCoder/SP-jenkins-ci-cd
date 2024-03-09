@@ -23,7 +23,7 @@ pipeline{
 
         stage("Deploy to Container"){
             steps{
-                deploy adapters: [tomcat9(credentialsId: 'tomcat-pwd', path: '', url: 'http://localhost:7070')], contextPath: 'jenkinsCiCd', war: '**/*.war'}
+                deploy adapters: [tomcat9(credentialsId: 'tomcat-pwd', path: '', url: 'http://localhost:7070/')], contextPath: 'jenkinsCiCd', war: '**/*.war'}
         }
 
     }
